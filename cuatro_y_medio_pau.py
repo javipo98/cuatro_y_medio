@@ -1,5 +1,8 @@
 with open("Excersises.csv") as Excersises:
-    Excersiseslist = []
+    excersises_list = []
 
 with open("codewars.csv") as codewars:
-    codewarslist = []
+    codewars_list = []
+    if "Grasshopper" in codewars:
+        for lines in codewars:
+            print(lines)
