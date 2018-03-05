@@ -1,0 +1,14 @@
+login
+	-Recibir una matricula
+	-Verificar si existe un archivo con ese nombre #para esto, el archivo de cada estudiante debe estar nombrado por dicha nomenclatura
+	-Permite acceso a la aplicacion con el archivo correspondiente
+
+codewars
+	-Verificar que la kata este en excercises
+	-Buscar la fecha en que se completo
+	-Verificar el batch al que pertenece
+
+summary
+	-Verifica la cantidad de lineas de ambos documentos y restarlas
+	-verificar todas las fechas y restarlas con los due date
+
