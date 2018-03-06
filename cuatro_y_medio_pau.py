@@ -1,4 +1,4 @@
-import os.path
+import os.path #libreria que permite verificar la existencia de los archivos
 # with open("Excersises.csv") as Excersises:
 #     excersises_list = []
 
@@ -9,15 +9,48 @@ import os.path
 #             print(lines)
 
 def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.csv" , processed_info = "processed.csv"):
-    if  os.path.isfile(exercises_db):
-        exercises = open(exercises_db , "r")
-    if  os.path.isfile(codewars_db):
+    
+    if  os.path.isfile(exercises_db):               #Se abren los archivos
+        exercises = open(exercises_db , "r")        #Si el archivo "nuevo" ya esta creado, lo limpia
+    else:                                           #   y escribe una primera linea con los renglones
+        return "El archivo " + exercises_db + " no existe" 
+    if  os.path.isfile(codewars_db):                
         codewars = open(codewars_db , "r")
+    else:
+        return "El archivo " + codewars_db + " no existe"
     if  os.path.isfile(processed_info):
         with open(processed_info , "w") as processed:
             processed.write("")
         processed = open(processed_info , "a")
+        processed.write("Batch,Exercise,Completed,DateCompleted,CompletedLate")
     else:
         processed = open(processed_info , "a")
+        processed.write("Batch,Exercise,Completed,DateCompleted,CompletedLate")
+
+    exercises_splitted = exercises.readline().replace("\n","").split(",")       #Se obtiene el indice de cada renglon
+    batch = exercises_splitted.index("batch")                                   #Esto es para evitar fallos si los documentos no estan organizados
+    due_date = exercises_splitted.index("due_date")
+    name = exercises_splitted.index("name")
+    url = exercises_splitted.index("url")
+
+    codewars_splitted = codewars.readline().replace("\n","").split(",")
+    slug = codewars_splitted.index("slug")
+    completed_at = codewars_splitted.index("completedAt")
+
+
+
+
+
+#####################Testing##############################################################################################
+    print(exercises_splitted,batch,due_date,name,url,codewars_splitted,slug,completed_at)
+
+
+
     print(exercises.closed,codewars.closed,processed.closed)
-codewars_command()
+    exercises.close()
+    codewars.close()
+    processed.close()
+    print(exercises.closed,codewars.closed,processed.closed)
+
+
+print(codewars_command("pepe"))
