@@ -1,1 +1,29 @@
 Batch,Exercise,Completed,DateCompleted,CompletedLate
+summary:
+import os.path
+
+file_db = "archivo.csv"
+
+if  os.path.isfile(file_db):
+    file = open(file_db , "r") 
+    
+file_splitted = file.readline().replace("\n","").split(",")
+
+lines = file.readlines()
+
+
+x, y, z = len(lines), 0, 0
+
+for myLine in lines:
+  exercise = myLine.replace("\n","").split(",")
+  
+  if exercise[4] == "true":
+    y += 1
+  if exercise[5] == "true":
+    z += 1
+  print (exercise)
+
+print (x,y,z)
+#x=la cantidad de lineas 
+#y=la entrega a tiempo
+#z= la cantidad de entrega tardia 
