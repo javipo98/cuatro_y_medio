@@ -14,5 +14,17 @@ summary
 
 
 codewars
-	-Abrir ambos documentos
-	-Buscar
+	-Verificar si existen los documentos que se introdujeron para extraer la informacion; si existen abrirlos
+	-Verificar si el archivo al que se guardaran los datos existe; si no existe, crearlo
+		-Si existe, borrar la informacion dentro
+	-Recorrer cada linea de excercises.csv
+		-Tomar el batch y el nombre y ponerlos en la variable que luego se escribira en el archivo
+		-Sacar el slug del url
+		-Buscar el slug en cada linea de codewars.csv
+		-Al encontrar (o no encontrar) el slug, concatenarle la informacion faltante a la variable
+	-Escribir la informacion en el archivo 
+	-Al terminar, imprimir en pantalla el archivo
+	-Cerrar los archivos
+
+
+invisionapp
