@@ -1,1 +1,54 @@
-Batch,Exercise,Completed,DateCompleted,CompletedLate
+Batch,Exercise,Completed,DateCompleted,CompletedLate1,Convert a Number to a String!,True,2018-01-12T21:44:56Z,False
+1,Convert a String to a Number!,True,2018-01-12T21:43:41Z,False
+1,Find the volume of a Cone.,True,2018-01-13T05:06:07Z,False
+1,Grasshopper - Messi Goals,True,2018-01-12T20:05:11Z,False
+1,Grasshopper - Shopping list,True,2018-01-13T05:18:49Z,False
+1,Keep Hydrated!,True,2018-01-12T21:52:45Z,False
+1,Opposite number,True,2018-01-12T21:46:18Z,False
+1,Volume of a Cuboid,True,2018-01-13T04:47:52Z,False
+2,Century From Year,True,2018-01-24T04:51:07Z,False
+2,Convert boolean values to strings 'Yes' or 'No'.,True,2018-01-24T04:30:47Z,False
+2,Even or Odd,True,2018-01-18T02:00:52Z,False
+2,Fake Binary,True,2018-01-21T16:03:21Z,False
+2,Isograms,True,2018-01-29T03:51:38Z,False
+2,Keep up the hoop,True,2018-01-24T04:44:19Z,False
+2,Return Negative,True,2018-01-24T04:46:04Z,False
+2,Rock Paper Scissors!,True,2018-01-24T04:39:52Z,False
+2,SevenAte9,True,2018-01-29T04:18:15Z,False
+2,Sum of all the multiples of 3 or 5,True,2018-01-24T04:54:38Z,False
+3,Needle in the Haystack,True,2018-02-14T15:59:55Z,False
+3,Build tower,True,2018-02-21T17:58:47Z,True
+3,Count of pos minus neg,True,2018-02-14T20:18:41Z,False
+3,Counting sheep,True,2018-02-14T15:22:05Z,False
+3,Double char,True,2018-02-14T16:08:30Z,False
+3,Grasshopper,True,2018-02-14T15:54:47Z,False
+3,Multiples of 3 and 5,True,2018-02-14T16:13:26Z,False
+3,Square n sum,True,2018-02-14T15:27:54Z,False
+3,Sum of positives,True,2018-02-14T20:00:32Z,False
+3,Two lowest positive,True,2018-02-14T21:01:48Z,False
+4,Exclamation per Vowel,True,2018-02-21T20:53:07Z,False
+4,Friend or Foe,True,2018-02-21T20:24:43Z,False
+4,Middle Char,True,2018-02-28T20:45:16Z,False
+4,Persistent bugger,True,2018-03-04T21:06:57Z,True
+4,First and last,True,2018-02-21T20:36:54Z,False
+4,Removing spaces,True,2018-01-14T22:29:39Z,False
+4,Reversing words,True,2018-03-04T21:02:36Z,True
+4,Sentence smash,True,2018-02-26T21:33:48Z,False
+4,Vowel Count,True,2018-02-21T20:42:14Z,False
+expos,(G2) Vowels count,False,None,False
+expos,(G3) Dominant array,False,None,False
+expos,(G2) Elevator distance,False,None,False
+expos,(G1) Fuel calculator,False,None,False
+expos,(G3) KISS,False,None,False
+expos,(G3) Logical calculator,False,None,False
+expos,(G1) N seconds ago,False,None,False
+expos,(G1) Encryption alternating,False,None,False
+expos,(G2) Sum square even,False,None,False
+extr-1,Cockroach,False,None,False
+extr-1,Bool to Str,False,None,False
+extr-1,Max/Min,False,None,False
+extr-1,Grade book,False,None,False
+extr-1,Invert Values,False,None,False
+extr-1,Printer errors,False,None,False
+extr-1,Triangle angles,False,None,False
+extr-1,YONO,False,None,False
