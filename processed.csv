@@ -18,7 +18,7 @@ Batch,Exercise,Completed,DateCompleted,CompletedLate
 2,SevenAte9,True,2018-01-29T04:18:15Z,False
 2,Sum of all the multiples of 3 or 5,True,2018-01-24T04:54:38Z,False
 3,Needle in the Haystack,True,2018-02-14T15:59:55Z,False
-3,Build tower,True,2018-02-21T17:58:47Z,True
+3,Build tower,True,2018-02-21T17:58:47Z,False
 3,Count of pos minus neg,True,2018-02-14T20:18:41Z,False
 3,Counting sheep,True,2018-02-14T15:22:05Z,False
 3,Double char,True,2018-02-14T16:08:30Z,False
@@ -30,10 +30,10 @@ Batch,Exercise,Completed,DateCompleted,CompletedLate
 4,Exclamation per Vowel,True,2018-02-21T20:53:07Z,False
 4,Friend or Foe,True,2018-02-21T20:24:43Z,False
 4,Middle Char,True,2018-02-28T20:45:16Z,False
-4,Persistent bugger,True,2018-03-04T21:06:57Z,True
+4,Persistent bugger,True,2018-03-04T21:06:57Z,False
 4,First and last,True,2018-02-21T20:36:54Z,False
 4,Removing spaces,True,2018-01-14T22:29:39Z,False
-4,Reversing words,True,2018-03-04T21:02:36Z,True
+4,Reversing words,True,2018-03-04T21:02:36Z,False
 4,Sentence smash,True,2018-02-26T21:33:48Z,False
 4,Vowel Count,True,2018-02-21T20:42:14Z,False
 expos,(G2) Vowels count,False,None,False

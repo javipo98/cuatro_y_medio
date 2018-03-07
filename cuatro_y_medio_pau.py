@@ -58,8 +58,7 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
                 due_date_month = int(exercise_line[due_date][0:2])
                 due_date_year = int("20"+exercise_line[due_date][6:9])
                 due_date_exercises = datetime.date(due_date_year,due_date_month,due_date_day)
-                #print(due_date_exercises)
-                #print(slug_pulled)
+
                 with open(codewars_db) as codewars:
                     
                     for check in codewars:
@@ -74,7 +73,7 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
                             completed_at_year = int(codewars_line[completed_at][0:4])
                             completed_at_date = datetime.date(completed_at_year,completed_at_month,completed_at_day)
                              
-                            to_be_written += (",True" + "," + check.split(",")[completed_at] + "," + str((due_date_exercises - completed_at_date).days <= 0))
+                            to_be_written += (",True" + "," + check.split(",")[completed_at] + "," + str((due_date_exercises - completed_at_date).days < 0))
                             to_be_written = to_be_written.replace("\n","")
                             print(to_be_written)
                             with open(processed_info,"a") as processed:
@@ -119,9 +118,24 @@ def summary_command(processed_info = "processed.csv"):
                             
 #########################Programa###################################################################################################
 while True:
-    if login(input("¿Cuál es tu matrícula?")):
-        # input('''
-        # ''')
+    if login(input("¿Cuál es tu matrícula? ")):
+        while True:
+            command = input('''
+            Bienvenido.
+            Si quiere ver el estado de sus ejercicios escriba "codewars"
+            Si quiere ver un resumen escriba "summary"
+            Si quiere salir escriba "quit"\n''')
+
+            if command.lower() == "codewars":
+                codewars_command(input("¿De dónde leeré los ejercicios para hacer? ") , input("¿De dónde leeré los ejercicios que hiciste? "))
+            
+            elif command.lower() == "summary":
+                summary_command()
+            
+            elif command.lower() == "quit":
+                break
+    else:
+        print("Matricula invalida")
 
 
 
