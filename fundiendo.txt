@@ -29,3 +29,4 @@ codewars
 	-Cerrar los archivos
 
 Batch (string), Exercise (string),  Completed (bool), DateCompleted(String or None), CompletedLate (bool)
+
