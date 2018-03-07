@@ -42,7 +42,7 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
     
 
     
-    with open(exercises_db) as exercises:
+    with open(exercises_db) as exercises:   #wepa
         for line in exercises:                                                      #Este for recorre el documento exercises
             if line == "batch,due_date,name,url,strict,extran\n":
                 continue
