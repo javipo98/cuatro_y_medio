@@ -60,7 +60,9 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
                             to_be_written += (",True" + "," + check.split(",")[completed_at])
                             print(to_be_written)
                             break 
-
+                    else:
+                        to_be_written += (",False,None,False")
+                        print(to_be_written)
             
         
 
