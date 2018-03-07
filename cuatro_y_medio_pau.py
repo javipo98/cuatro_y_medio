@@ -2,7 +2,7 @@ import datetime
 import os.path #libreria que permite verificar la existencia de los archivos
 
 def login(matricula):#Creamos una funcion, en la cual se creara los algoritmos para que dicha funcion pueda ejecutarse.
-  matricula = (input("Ingrese su matricula")) #Creamos una variable en la cual introducimos un input el cual mostrara que debemos ingresar para completar dicho paso.
+  #matricula = (input("Ingrese su matricula")) #Creamos una variable en la cual introducimos un input el cual mostrara que debemos ingresar para completar dicho paso.
   if len(matricula)==8 and matricula.isnumeric():#Aqui decimos que la variable debe tener una longitud de 8 digitos y debe ser numerica.
     logged = matricula      #Guardamos la matricula introducida en una variable (si es valida)
     return True #Asi retornamos que es verdadero cuando cumple cada paso correctamente.
@@ -35,10 +35,10 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
         with open(processed_info , "w") as processed:
             processed.write("")
         processed = open(processed_info , "a")
-        processed.write("Batch,Exercise,Completed,DateCompleted,CompletedLate")
+        processed.write("Batch,Exercise,Completed,DateCompleted,CompletedLate\n")
     else:
         processed = open(processed_info , "a")
-        processed.write("Batch,Exercise,Completed,DateCompleted,CompletedLate")
+        processed.write("Batch,Exercise,Completed,DateCompleted,CompletedLate\n")
 
 
     
@@ -92,11 +92,13 @@ def summary(processed_info = "processed.csv"):
   if  os.path.isfile(processed_info):
       with open(processed_info) as processed:
         if len(processed.readlines()) > 1:
+          processed.seek(0,0)
           processed_splitted = processed.readline().replace("\n","").split(",")
           completed = processed_splitted.index("Completed")                                   #Esto es para evitar fallos si los documentos no estan organizados
-          completed_late = processed_splitted.index("completedLate")
+          completed_late = processed_splitted.index("CompletedLate")
 
-          total_exercises, total_completed, total_late, total_missing = len(lines), 0, 0, 0
+          total_exercises, total_completed, total_late, total_missing = len(processed.readlines()), 0, 0, 0
+          processed.seek(0,0)
 
           for my_line in processed.readlines():
             exercise = my_line.replace("\n","").split(",")
@@ -126,4 +128,5 @@ def summary(processed_info = "processed.csv"):
 #####################Testing##############################################################################################
 codewars_command()
 summary()
-login()
+print(login("20165733"))
+
