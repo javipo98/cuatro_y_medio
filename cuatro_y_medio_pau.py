@@ -39,21 +39,21 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
         processed = open(processed_info , "a")
         processed.write("Batch,Exercise,Completed,DateCompleted,CompletedLate")
 
-    
 
     
-    with open(exercises_db) as exercises:   #wepa
+    with open(exercises_db) as exercises:   
         for line in exercises:                                                      #Este for recorre el documento exercises
-            if line == "batch,due_date,name,url,strict,extran\n":
+            if line == "batch,due_date,name,url,strict,extra\n":
                 continue
             else:
                 exercise_line = line.split(",")
                 to_be_written = exercise_line[batch] + "," + exercise_line[name]        #En esta variable se va creando el string a escribir en processed
                 slug_pulled = exercise_line[url][(exercise_line[url].index("kata")+5):] #Aqui se obtiene el slug del url de exercises
-                print(slug_pulled)
+                #print(slug_pulled)
+
                 with open(codewars_db) as codewars:
                     for check in codewars:
-                        print(check)
+                        #print(check)
                         if check == "id,name,slug,completedLanguages/0,completedAt\n":
                             continue 
                         elif slug_pulled == check.split(",")[slug]:
