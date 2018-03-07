@@ -4,6 +4,7 @@ import os.path #libreria que permite verificar la existencia de los archivos
 def login(matricula):#Creamos una funcion, en la cual se creara los algoritmos para que dicha funcion pueda ejecutarse.
   #matricula = (input("Ingrese su matricula")) #Creamos una variable en la cual introducimos un input el cual mostrara que debemos ingresar para completar dicho paso.
   if len(matricula)==8 and matricula.isnumeric():#Aqui decimos que la variable debe tener una longitud de 8 digitos y debe ser numerica.
+    global logged
     logged = matricula      #Guardamos la matricula introducida en una variable (si es valida)
     return True #Asi retornamos que es verdadero cuando cumple cada paso correctamente.
   else: 
@@ -86,7 +87,7 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
                         with open(processed_info,"a") as processed:
                                 processed.write(to_be_written + "\n")
 
-def summary(user_id , processed_info = "processed.csv"):
+def summary_command(processed_info = "processed.csv"):
 
   if  os.path.isfile(processed_info):
       with open(processed_info) as processed:
@@ -109,14 +110,18 @@ def summary(user_id , processed_info = "processed.csv"):
           else:
             total_missing = total_exercises - total_completed
           
-          print(" StudentId: " , user_id , "\n" , "TotalExercises: " , total_exercises , "\n" , "TotalCompleted: " , total_completed , "\n" , "TotalLate: " , total_late , "\n" , "TotalMissing: " , total_missing)
+          print(" StudentId: " , logged , "\n" , "TotalExercises: " , total_exercises , "\n" , "TotalCompleted: " , total_completed , "\n" , "TotalLate: " , total_late , "\n" , "TotalMissing: " , total_missing)
         else:
             print("No se ha encontrado ningun archivo con informacion suficiente para crear un summary")
 
   else:
     print("No se ha encontrado ningun archivo con informacion suficiente para crear un summary")
                             
-
+#########################Programa###################################################################################################
+while True:
+    if login(input("¿Cuál es tu matrícula?")):
+        # input('''
+        # ''')
 
 
 
@@ -127,8 +132,8 @@ def summary(user_id , processed_info = "processed.csv"):
 
 
 #####################Testing##############################################################################################
-login("20165733")
-codewars_command()
-summary(user_id="prueba")
-print(login("2016573"))
+# login("20165733")
+# codewars_command()
+# summary_command(user_id="prueba")
+# print(login("2016573"))
 
