@@ -41,12 +41,19 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
     for line in exercises:                                                      #Este for recorre el documento exercises
         if line == "batch,due_date,name,url,strict,extran\n":
             continue
-        exercise_line = line.split(",")
-        to_be_written = exercise_line[batch] + "," + exercise_line[name]        #En esta variable se va creando el string a escribir en processed
-        slug_pulled = exercise_line[url][(exercise_line[url].index("kata")+5):] #Aqui se obtiene el slug del url de exercises
-        for check in codewars:
-            if slug_pulled == codewars_splitted[slug]:
-                to_be_written += ",True"
+        else:
+            exercise_line = line.split(",")
+            to_be_written = exercise_line[batch] + "," + exercise_line[name]        #En esta variable se va creando el string a escribir en processed
+            slug_pulled = exercise_line[url][(exercise_line[url].index("kata")+5):] #Aqui se obtiene el slug del url de exercises
+            print(slug_pulled)
+            for check in codewars:
+                print(check)
+                if check == "id,name,slug,completedLanguages/0,completedAt\n":
+                    continue 
+                elif slug_pulled == check.split(",")[slug]:
+                    to_be_written += (",True" + "," + check.split(",")[completed_at])
+                    print(to_be_written)
+                    break 
 
             
         
@@ -56,15 +63,15 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
 
 
 #####################Testing##############################################################################################
-    print(exercises_splitted,batch,due_date,name,url,codewars_splitted,slug,completed_at)
+    # print(exercises_splitted,batch,due_date,name,url,codewars_splitted,slug,completed_at)
 
 
 
-    print(exercises.closed,codewars.closed,processed.closed)
-    exercises.close()
-    codewars.close()
-    processed.close()
-    print(exercises.closed,codewars.closed,processed.closed)
+    # print(exercises.closed,codewars.closed,processed.closed)
+    # exercises.close()
+    # codewars.close()
+    # processed.close()
+    # print(exercises.closed,codewars.closed,processed.closed)
 
 
-print(codewars_command())
+codewars_command()
