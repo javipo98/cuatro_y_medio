@@ -1,4 +1,5 @@
 import os.path #libreria que permite verificar la existencia de los archivos
+
 # with open("Excersises.csv") as Excersises:
 #     excersises_list = []
 
@@ -37,6 +38,19 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
     slug = codewars_splitted.index("slug")
     completed_at = codewars_splitted.index("completedAt")
 
+    for line in exercises:                                                      #Este for recorre el documento exercises
+        if line == "batch,due_date,name,url,strict,extran\n":
+            continue
+        exercise_line = line.split(",")
+        to_be_written = exercise_line[batch] + "," + exercise_line[name]        #En esta variable se va creando el string a escribir en processed
+        slug_pulled = exercise_line[url][(exercise_line[url].index("kata")+5):] #Aqui se obtiene el slug del url de exercises
+        for check in codewars:
+            if slug_pulled == codewars_splitted[slug]:
+                to_be_written += ",True"
+
+            
+        
+
 
 
 
@@ -53,4 +67,4 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
     print(exercises.closed,codewars.closed,processed.closed)
 
 
-print(codewars_command("pepe"))
+print(codewars_command())
