@@ -7,7 +7,7 @@ def login(matricula):#Creamos una funcion, en la cual se creara los algoritmos p
     logged = matricula      #Guardamos la matricula introducida en una variable (si es valida)
     return True #Asi retornamos que es verdadero cuando cumple cada paso correctamente.
   else: 
-    print ("matricula", matricula, "no es valida") #Y un else, que de lo contrario a lo planteado anterior, imprima que la matricula es incorrecta
+    return False #Y un else, que de lo contrario a lo planteado anterior, retorna False
 
 
 def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.csv" , processed_info = "processed.csv"):
@@ -21,7 +21,8 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
             url = exercises_splitted.index("url")        
                                                     #Si el archivo "nuevo" ya esta creado, lo limpia
     else:                                           #   y escribe una primera linea con los renglones
-        return "El archivo " + exercises_db + " no existe" 
+        print("El archivo " , exercises_db , " no existe")
+        return None 
     
     if  os.path.isfile(codewars_db):                
         with open(codewars_db) as codewars:
@@ -29,7 +30,8 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
             slug = codewars_splitted.index("slug")
             completed_at = codewars_splitted.index("completedAt")
     else:
-        return "El archivo " + codewars_db + " no existe"
+        print("El archivo " , codewars_db , " no existe")
+        return None
     
     if  os.path.isfile(processed_info):
         with open(processed_info , "w") as processed:
@@ -84,10 +86,7 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
                         with open(processed_info,"a") as processed:
                                 processed.write(to_be_written + "\n")
 
-def summary(processed_info = "processed.csv"):
-  #import os.path
-
-  #file_db = "archivo.csv"
+def summary(user_id , processed_info = "processed.csv"):
 
   if  os.path.isfile(processed_info):
       with open(processed_info) as processed:
@@ -110,7 +109,9 @@ def summary(processed_info = "processed.csv"):
           else:
             total_missing = total_exercises - total_completed
           
-          print(total_exercises, total_completed, total_late, total_missing)
+          print(" StudentId: " , user_id , "\n" , "TotalExercises: " , total_exercises , "\n" , "TotalCompleted: " , total_completed , "\n" , "TotalLate: " , total_late , "\n" , "TotalMissing: " , total_missing)
+        else:
+            print("No se ha encontrado ningun archivo con informacion suficiente para crear un summary")
 
   else:
     print("No se ha encontrado ningun archivo con informacion suficiente para crear un summary")
@@ -126,7 +127,8 @@ def summary(processed_info = "processed.csv"):
 
 
 #####################Testing##############################################################################################
+login("20165733")
 codewars_command()
-summary()
-print(login("20165733"))
+summary(user_id="prueba")
+print(login("2016573"))
 
