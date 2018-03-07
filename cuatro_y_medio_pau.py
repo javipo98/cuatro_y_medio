@@ -1,3 +1,4 @@
+import datetime
 import os.path #libreria que permite verificar la existencia de los archivos
 
 # with open("Excersises.csv") as Excersises:
@@ -44,24 +45,38 @@ def codewars_command(exercises_db = "exercises.csv" , codewars_db = "codewars.cs
     
     with open(exercises_db) as exercises:   #wepa
         for line in exercises:                                                      #Este for recorre el documento exercises
-            if line == "batch,due_date,name,url,strict,extran\n":
+            if line == "batch,due_date,name,url,strict,extra\n":
                 continue
             else:
                 exercise_line = line.split(",")
                 to_be_written = exercise_line[batch] + "," + exercise_line[name]        #En esta variable se va creando el string a escribir en processed
                 slug_pulled = exercise_line[url][(exercise_line[url].index("kata")+5):] #Aqui se obtiene el slug del url de exercises
+                due_date_day = int(exercise_line[due_date][3:5])
+                due_date_month = int(exercise_line[due_date][0:2])
+                due_date_year = int("20"+exercise_line[due_date][6:9])
+                due_date_exsercises = datetime.date(due_date_year,due_date_month,due_date_day)
+                print(due_date_exsercises)
                 print(slug_pulled)
                 with open(codewars_db) as codewars:
+                    
                     for check in codewars:
-                        print(check)
+                        
                         if check == "id,name,slug,completedLanguages/0,completedAt\n":
                             continue 
                         elif slug_pulled == check.split(",")[slug]:
+                            codewars_line = check.split(",")
+                            completed_at_month = int(codewars_line[completed_at][5:7])
+                            completed_at_day = int(codewars_line[completed_at][8:10])
+                            completed_at_year = int(codewars_line[completed_at][0:4])
+                            completed_at_date = datetime.date(completed_at_year,completed_at_month,completed_at_day)
                             to_be_written += (",True" + "," + check.split(",")[completed_at])
                             print(to_be_written)
-                            break 
+                            break
+                            
 
-            
+
+
+
         
 
 
